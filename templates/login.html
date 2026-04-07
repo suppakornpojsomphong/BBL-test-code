@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBL Appointment - Login</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="card">
+            <div class="header-section">
+                <h1 class="brand-title">BBL Appointment</h1>
+                <p class="subtitle">Please sign in to your account</p>
+            </div>
+
+            {% if error %}
+            <div class="error-alert">
+                Invalid username or password. Please try again.
+            </div>
+            {% endif %}
+
+            <form action="/login" method="post">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+
+                <button type="submit" class="btn">Sign In</button>
+            </form>
+
+            <div class="hint-box">
+                <p><strong>Testing Accounts:</strong></p>
+                <p>Admin: <code>admin-note</code> / <code>123</code></p>
+                <p>User: <code>user-1</code> / <code>456</code></p>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <p>Developed by <strong>Suppakorn Pojsomphong</strong></p>
+    </footer>
+</body>
+</html>

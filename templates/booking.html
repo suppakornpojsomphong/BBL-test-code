@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBL Appointment - Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">BBL Appointment</div>
+        <div class="nav-user">
+            <span>Welcome, <strong>{{ user.username }}</strong> {% if user.is_admin %}(Admin){% endif %}</span>
+            <a href="/logout" class="btn-logout">Logout</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+<section class="booking-form-card">
+    <h2>New Appointment</h2>
+    <p>Select your preferred time slot below</p>
+    
+    <form id="bookingForm" action="/book" method="post" class="inline-form">
+        <div class="time-inputs">
+            <div class="input-field">
+                <label>Start Time</label>
+                <input type="time" id="start_time" name="start_time" required>
+            </div>
+            <div class="input-field">
+                <label>End Time</label>
+                <input type="time" id="end_time" name="end_time" required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Book Now</button>
+    </form>
+    
+    <p id="timeError" style="color: #dc2626; font-size: 0.85rem; margin-top: 10px; display: none;">
+        Error: End time must be after start time.
+    </p>
+</section>
+
+<script>
+    const form = document.getElementById('bookingForm');
+    const startInput = document.getElementById('start_time');
+    const endInput = document.getElementById('end_time');
+    const errorMsg = document.getElementById('timeError');
+
+    form.addEventListener('submit', function(e) {
+        if (startInput.value >= endInput.value) {
+            e.preventDefault(); 
+            errorMsg.style.display = 'block'; 
+        } else {
+            errorMsg.style.display = 'none';
+        }
+    });
+</script>
+
+        <section class="list-section">
+            <div class="list-header">
+                <h3>{% if user.is_admin %}All Bookings (System Wide){% else %}My Scheduled Bookings{% endif %}</h3>
+                <span class="badge">{{ bookings|length }} items</span>
+            </div>
+
+            <div class="booking-grid">
+                {% for b in bookings %}
+                <div class="booking-item">
+                    <div class="slot-info">
+                        <span class="icon">📅</span>
+                        <span class="time">{{ b.slot }}</span>
+                    </div>
+                    <div class="user-tag">
+                        <small>Booked by:</small> {{ b.user }}
+                    </div>
+                </div>
+                {% else %}
+                <div class="empty-state">
+                    <p>No appointments found.</p>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Developed by <strong>Suppakorn Pojsomphong</strong></p>
+    </footer>
+</body>
+</html>

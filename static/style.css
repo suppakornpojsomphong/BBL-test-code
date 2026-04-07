@@ -1,0 +1,276 @@
+:root {
+    --primary: #1a56db;
+    --primary-hover: #1e429f;
+    --bg: #f3f4f6;
+    --card: #ffffff;
+    --text: #111827;
+    --text-light: #6b7280;
+    --border: #e5e7eb;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Login */
+
+.login-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.card {
+    background: var(--card);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid var(--border);
+}
+
+.header-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.brand-title {
+    color: var(--primary);
+    margin: 0;
+    font-size: 1.75rem;
+}
+
+.subtitle {
+    color: var(--text-light);
+    margin-top: 0.5rem;
+}
+
+/* Form */
+
+.input-group {
+    margin-bottom: 1.25rem;
+}
+
+label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+
+input:focus {
+    outline: 2px solid var(--primary);
+    border-color: transparent;
+}
+
+.btn {
+    width: 100%;
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: var(--primary-hover);
+}
+
+/* Dashboard */
+
+.navbar {
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+.nav-brand {
+    font-weight: 800;
+    color: var(--primary);
+    font-size: 1.25rem;
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-logout {
+    text-decoration: none;
+    color: #dc2626;
+    font-size: 0.875rem;
+    background: #fee2e2;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: 0.2s;
+}
+
+.btn-logout:hover {
+    background: #fecaca;
+}
+
+.main-content {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 1.5rem;
+}
+
+.booking-form-card {
+    background: var(--card);
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border);
+}
+
+.inline-form {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    align-items: flex-end;
+}
+
+/* Time Selection */
+
+.time-inputs {
+    display: flex;
+    gap: 1.5rem;
+    flex-grow: 1;
+}
+
+.input-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field label {
+    font-size: 0.75rem;
+    margin-bottom: 4px;
+    color: var(--text-light);
+}
+
+.inline-form .btn {
+    width: auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+/* List Styles */
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.badge {
+    background: #e5e7eb;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.booking-item {
+    background: var(--card);
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--border);
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.2s;
+}
+
+.booking-item:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.slot-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+}
+
+.user-tag {
+    color: var(--text-light);
+    font-size: 0.875rem;
+}
+
+/* --- Alerts --- */
+
+.error-alert {
+    background-color: #fef2f2;
+    color: #991b1b;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #fecaca;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.hint-box {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #eff6ff;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    color: #1e40af;
+}
+
+.hint-box code {
+    background: transparent; 
+    padding: 0; 
+    border-radius: 0; 
+    font-family: var(--font-mono); 
+    font-weight: 600; 
+    color: inherit; 
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--text-light);
+    font-size: 0.875rem;
+}
+
+.footer strong {
+    color: var(--text);
+    font-weight: 600;
+}
